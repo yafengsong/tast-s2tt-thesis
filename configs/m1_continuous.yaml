@@ -1,0 +1,5 @@
+# M1: continuous WavLM features, no quantization. The upper-bound baseline.
+defaults: base.yaml
+
+bridge:
+  type: continuous     # ContinuousBridge: Linear(1024->1024) + LayerNorm

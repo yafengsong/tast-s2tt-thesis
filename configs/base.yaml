@@ -1,0 +1,33 @@
+# Shared settings across M1/M2/M3. Experiment configs override the bridge section.
+seed: 42
+
+encoder:
+  model_name: microsoft/wavlm-large
+  layer: 21            # frozen feature layer
+  freeze: true
+
+decoder:
+  model_name: facebook/nllb-200-distilled-600M
+  lora:
+    r: 16
+    alpha: 32
+    dropout: 0.05
+    target_modules: [q_proj, v_proj]
+
+data:
+  gigast_dir: /content/drive/MyDrive/Colab Notebooks/Master_Thesis_Code/gigast
+  lang: zh            # zh -> zho_Hans, de -> deu_Latn
+  tgt_lang_code: zho_Hans
+  subset: s
+  max_duration: 20.0
+
+train:
+  batch_size: 2
+  grad_accum: 8
+  lr: 1.0e-4
+  max_steps: 50000
+  warmup_steps: 1000
+  eval_every: 2000
+
+eval:
+  sacrebleu_tokenize: zh   # 13a for de, zh for zh
