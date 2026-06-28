@@ -1,0 +1,10 @@
+# Colab dev: defer to Colab's preinstalled torch/numpy (matched to its CUDA/driver).
+# Do NOT pin torch or numpy here — forcing them risks CUDA-mismatch errors.
+# The cluster uses requirements.txt with a torch pinned to the cluster's CUDA.
+transformers==4.44.2
+peft==0.12.0
+datasets==2.21.0
+sacrebleu==2.4.3
+ijson==3.3.0
+pyyaml==6.0.2
+python-dotenv==1.0.1
