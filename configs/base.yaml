@@ -6,6 +6,10 @@ encoder:
   layer: 21            # frozen feature layer
   freeze: true
 
+bridge:
+  hidden_dim: 1024     # == WavLM-Large hidden == NLLB d_model
+  use_pos_embed: false # ablation switch; flip per experiment config
+
 decoder:
   model_name: facebook/nllb-200-distilled-600M
   lora:
